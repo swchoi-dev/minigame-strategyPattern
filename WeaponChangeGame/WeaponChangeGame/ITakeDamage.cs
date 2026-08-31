@@ -2,5 +2,6 @@ namespace WeaponChangeGame;
 
 public interface ITakeDamage
 {
-    public void TakeDamage(int damage);
+    ArmorType ArmorType { get; }
+    void TakeDamage(int damage);
 }
