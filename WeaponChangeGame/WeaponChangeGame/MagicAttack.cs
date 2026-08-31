@@ -1,6 +1,6 @@
 namespace WeaponChangeGame;
 
-public interface IWeapon
+public class MagicAttack
 {
     
 }

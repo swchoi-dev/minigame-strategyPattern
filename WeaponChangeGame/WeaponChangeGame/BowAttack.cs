@@ -1,6 +1,6 @@
 namespace WeaponChangeGame;
 
-public class Magic
+public class BowAttack
 {
     
 }

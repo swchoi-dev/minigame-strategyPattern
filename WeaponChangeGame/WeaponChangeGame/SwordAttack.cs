@@ -1,6 +1,6 @@
 namespace WeaponChangeGame;
 
-public class Sword
+public class SwordAttack
 {
     
 }

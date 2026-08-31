@@ -1,6 +1,6 @@
 namespace WeaponChangeGame;
 
-public class Bow
+public interface IAttackStrategy
 {
     
 }
