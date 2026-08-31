@@ -3,7 +3,7 @@ namespace WeaponChangeGame;
 public abstract class Enemy
 {
     private int _hp;
-
+    
     public virtual int Hp
     {
         get => _hp;
@@ -12,6 +12,7 @@ public abstract class Enemy
             if (value < 0) value = 0;
             _hp = value;
             if (_hp <= 0) Die();
+            else Console.WriteLine($"{Name}의 체력은 {Hp}이 되었다..!");
         }
     }
 
@@ -28,5 +29,10 @@ public abstract class Enemy
     public virtual void Die()
     {
         Console.WriteLine($"{Name}은 쓰러졌다..!");
+    }
+
+    public virtual void Info()
+    {
+        Console.WriteLine($"{Name}은 {ArmorType.기본}타입 입니다.");
     }
 }
