@@ -14,9 +14,12 @@ public class Game
         // Monster.Attack();
         // Player.TakeDamage(Monster.damage, Monster.AttackStrategy);
 
-        Slime slime = new Slime("파랑 슬라임", 100, 30);
-        slime.Attack();
+        SwordAttack swordAttack = new SwordAttack();
+        Player player = new Player("Dile", 10, 300, swordAttack);
+        Slime slime = new Slime("파랑 슬라임", 100, 30, ArmorType.물리내성);
+        slime.Attack(player);
         slime.TakeDamage(30);
+        slime.Info();
 
 
     }
