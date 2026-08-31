@@ -2,5 +2,5 @@ namespace WeaponChangeGame;
 
 public interface ITakeDamage
 {
-    public void TakeDamage();
+    public void TakeDamage(int damage);
 }
