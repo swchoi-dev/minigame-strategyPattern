@@ -18,17 +18,21 @@ public abstract class Enemy
 
     public int Damage { get; }
     public string Name { get; private set; }
+    
+    public bool IsAlive { get; private set; }
 
     public Enemy(string name, int hp, int damage)
     {
         Name = name;
         Hp = hp;
         Damage = damage;
+        IsAlive = true;
     }
 
     public virtual void Die()
     {
         Console.WriteLine($"{Name}은 쓰러졌다..!");
+        IsAlive = false;
     }
 
     public virtual void Info()
