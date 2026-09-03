@@ -4,11 +4,15 @@ public class Player : IAttack, ITakeDamage
 {
     private int _hp;
     private IAttackStrategy _strategy;
+    private bool _isAlive = true;
     
     public string Name { get; }
     public int Damage { get; }
+
+    public StrategyName AttackType => _strategy.Name;
     
-    public bool IsAlive { get; private set; }
+    public bool IsAlive => _isAlive;
+    public bool IsDead => !IsAlive;
 
     public ArmorType ArmorType { get; }
     
@@ -31,7 +35,7 @@ public class Player : IAttack, ITakeDamage
         Hp = hp;
         _strategy = strategy;
         ArmorType = ArmorType.기본;
-        IsAlive = true;
+        _isAlive = true;
     }
     public void Attack(ITakeDamage enemy)
     {
@@ -50,6 +54,6 @@ public class Player : IAttack, ITakeDamage
     {
         Console.WriteLine($"{Name}은 사망했다..!");
         Console.WriteLine($"{Name}의 눈 앞이 깜깜해졌다..!");
-        IsAlive = false;
+        _isAlive = false;
     }
 }

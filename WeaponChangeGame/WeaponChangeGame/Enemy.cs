@@ -3,6 +3,7 @@ namespace WeaponChangeGame;
 public abstract class Enemy
 {
     private int _hp;
+    private bool _isAlive;
     
     public virtual int Hp
     {
@@ -19,20 +20,21 @@ public abstract class Enemy
     public int Damage { get; }
     public string Name { get; private set; }
     
-    public bool IsAlive { get; private set; }
+    public bool IsAlive => _isAlive;
+    public bool IsDead => !_isAlive;
 
     public Enemy(string name, int hp, int damage)
     {
         Name = name;
-        Hp = hp;
         Damage = damage;
-        IsAlive = true;
+        Hp = hp;
+        _isAlive = true;
     }
 
     public virtual void Die()
     {
         Console.WriteLine($"{Name}은 쓰러졌다..!");
-        IsAlive = false;
+        _isAlive = false;
     }
 
     public virtual void Info()
