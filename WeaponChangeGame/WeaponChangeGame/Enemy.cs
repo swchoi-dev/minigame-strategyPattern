@@ -1,6 +1,6 @@
 namespace WeaponChangeGame;
 
-public abstract class Enemy
+public abstract class Enemy : IAttack, ITakeDamage
 {
     private int _hp;
     private bool _isAlive;
@@ -20,15 +20,18 @@ public abstract class Enemy
     public int Damage { get; }
     public string Name { get; private set; }
     
+    public ArmorType ArmorType { get; set; }
+    
     public bool IsAlive => _isAlive;
     public bool IsDead => !_isAlive;
 
-    public Enemy(string name, int hp, int damage)
+    public Enemy(string name, int hp, int damage, ArmorType armorType)
     {
         Name = name;
         Damage = damage;
         Hp = hp;
         _isAlive = true;
+        ArmorType = armorType;
     }
 
     public virtual void Die()
@@ -41,4 +44,8 @@ public abstract class Enemy
     {
         Console.WriteLine($"{Name}은 {ArmorType.기본}타입 입니다.");
     }
+
+    public abstract void Attack(ITakeDamage player);
+
+    public abstract void TakeDamage(int damage);
 }

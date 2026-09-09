@@ -1,22 +1,20 @@
 namespace WeaponChangeGame;
 
-public class Slime : Enemy, IAttack, ITakeDamage
+public class Slime : Enemy
 {
-    public ArmorType ArmorType { get; }
-    
-    public Slime(string name, int hp, int damage, ArmorType armor) : base(name, hp, damage)
+    public Slime(string name, int hp, int damage, ArmorType armor) : base(name, hp, damage, armor)
     {
         ArmorType = armor;
     }
 
-    public void Attack(ITakeDamage player)
+    public override void Attack(ITakeDamage player)
     {
         Console.WriteLine($"{Name}이 강력하게 몸을 부딪혔다..!");
         Console.WriteLine($"{Damage}만큼의 피해를 입혔다..!");
         player.TakeDamage(Damage);
     }
 
-    public void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
         Console.WriteLine($"{Name}은 {damage}의 데미지를 입었다..!");
         Hp -= damage;

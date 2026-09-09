@@ -11,6 +11,11 @@ public class Player : IAttack, ITakeDamage
 
     public StrategyName AttackType => _strategy.Name;
     
+    public IAttackStrategy Strategy {
+        get => _strategy;
+        set => _strategy = value;
+    } 
+        
     public bool IsAlive => _isAlive;
     public bool IsDead => !IsAlive;
 
@@ -39,9 +44,9 @@ public class Player : IAttack, ITakeDamage
     }
     public void Attack(ITakeDamage enemy)
     {
-        _strategy.CalculateDamage(Damage, enemy.ArmorType);
+        int result = _strategy.CalculateDamage(Damage, enemy.ArmorType);
         Console.WriteLine($"{_strategy.AttackMessage()}");
-        enemy.TakeDamage(Damage);
+        enemy.TakeDamage(result);
     }
 
     public void TakeDamage(int damage)

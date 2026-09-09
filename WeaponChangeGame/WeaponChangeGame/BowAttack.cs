@@ -6,7 +6,16 @@ public class BowAttack : IAttackStrategy
     
     public int CalculateDamage(int damage, ArmorType armorType)
     {
-        return 0;
+        int result = armorType switch
+        {
+            ArmorType.기본 => damage,
+            ArmorType.물리내성 => damage,
+            ArmorType.원거리내성 => damage / 10,
+            ArmorType.마법내성 => damage + 30,
+            _ => damage
+        };
+        Console.WriteLine($"damage : {result}");
+        return result;
     }
 
     public string AttackMessage()
