@@ -1,8 +1,8 @@
 namespace WeaponChangeGame;
 
-public class Slime : Enemy
+public class UndeadRich : Enemy
 {
-    public Slime(string name, int hp, int damage, ArmorType armor) : base(name, hp, damage, armor)
+    public UndeadRich(string name, int hp, int damage, ArmorType armor) : base(name, hp, damage, armor)
     {
         ArmorType = armor;
     }
@@ -25,7 +25,7 @@ public class Slime : Enemy
     public override void Info()
     {
         Console.WriteLine($"{Name}은 {ArmorType}타입 입니다.");
-        Console.WriteLine($"{Name}은 물리 공격에 데미지가 90% 반감됩니다.");
+        Console.WriteLine($"{Name}은 마법 공격에 데미지가 90% 반감됩니다.");
         Console.WriteLine();
     }
 }
