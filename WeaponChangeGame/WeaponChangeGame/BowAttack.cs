@@ -14,7 +14,6 @@ public class BowAttack : IAttackStrategy
             ArmorType.마법내성 => damage + 30,
             _ => damage
         };
-        Console.WriteLine($"damage : {result}");
         return result;
     }
 

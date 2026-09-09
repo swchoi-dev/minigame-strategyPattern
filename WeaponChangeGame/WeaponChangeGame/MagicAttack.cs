@@ -14,7 +14,6 @@ public class MagicAttack : IAttackStrategy
             ArmorType.마법내성 => damage / 10,
             _ => damage
         };
-        Console.WriteLine($"damage : {result}");
         return result;
     }
 
