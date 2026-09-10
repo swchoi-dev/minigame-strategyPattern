@@ -13,8 +13,8 @@ public class Game
     Enemy[] enemies =
     {
         new Slime("파랑 슬라임", 80, 10, ArmorType.물리내성),
-        new Slime("고블린 아처", 110, 30, ArmorType.원거리내성),
-        new Slime("언데드 리치", 150, 40, ArmorType.마법내성)
+        new GoblinArcher("고블린 아처", 110, 30, ArmorType.원거리내성),
+        new UndeadRich("언데드 리치", 150, 40, ArmorType.마법내성)
     };
     
     public void Run()
